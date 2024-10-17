@@ -1,5 +1,6 @@
 package com.ufv.restservice.rest_service;
 
+import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 
 
@@ -19,5 +20,18 @@ public class GreetingController {
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
+
+    @GetMapping("/users")
+    public ArrayList<User> users(){
+        JsonReader reader = new JsonReader();
+        ArrayList<User> userList = reader.readJsonFile("./src/main/resources/users.json");
+        return userList;
+    }
 }
+
+
+
+
+
+
 
