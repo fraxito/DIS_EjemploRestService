@@ -37,6 +37,7 @@ public class GreetingController {
         User foundUser = dataHandling.getUserInfo(name);
         return new ResponseEntity<>(foundUser, HttpStatus.OK);
 
+
     }
 }
 
