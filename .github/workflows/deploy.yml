@@ -1,0 +1,30 @@
+name: Despliegue en Invernalia
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configurar SSH
+        uses: webfactory/ssh-agent@master
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy general
+        uses: appleboy/ssh-action@master
+        with:
+          host: herokku.duckdns.org
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 7122
+          script: |
+            cd [DIRECTORIO DE TU APP]
+            cd [TU APP]
+            git pull origin main
+            docker compose down
+            docker compose up -d --build
