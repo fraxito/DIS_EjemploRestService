@@ -7,7 +7,7 @@ public class DataHandling {
         User foundUser = null;
         JsonReader reader = new JsonReader();
 
-        ArrayList<User> usersList = reader.readJsonFile("./src/main/resources/users.json");
+        ArrayList<User> usersList = reader.readJsonFile();
         for (User user : usersList){
             if (user.getName().equalsIgnoreCase(name)){
                 foundUser = user;
