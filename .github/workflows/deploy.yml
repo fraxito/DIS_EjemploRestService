@@ -15,7 +15,7 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Deploy V2
+      - name: Deploy V3
         uses: appleboy/ssh-action@master
         with:
           host: herokku.duckdns.org
