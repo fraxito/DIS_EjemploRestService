@@ -2,7 +2,7 @@ services:
   springboot-app:
     build: .
     ports:
-      - "8329:8080"  # Aquí el puerto 8329 lo cambias por tu puerto asignado
+      - "8229:8090"  # Aquí el puerto 8229 lo cambias por tu puerto asignado
     volumes:
       - ./logs:/app/logs
     environment:
