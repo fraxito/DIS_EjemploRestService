@@ -20,7 +20,7 @@ jobs:
           host: herokku.duckdns.org
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 8122
+          port: 7122
           script: |
             cd pga_next_docker
             cd pga_next
