@@ -14,12 +14,16 @@ jobs:
         uses: webfactory/ssh-agent@master
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Deploy general
+      - name: Deploy de la V2
         uses: appleboy/ssh-action@master
         with:
           host: herokku.duckdns.org
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 7122
-          script: "bash ~/deploy.sh"
+          port: 8122
+          script: |
+            cd pga_next_docker
+            cd pga_next
+            git pull origin main
+            docker compose down
+            docker compose up -d --build
