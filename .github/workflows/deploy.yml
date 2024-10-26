@@ -23,9 +23,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 7122
           script: |
-            pwd
-            ls
-            cd DIS_EjemploRestService
+            cd "DIS_EjemploRestService"
             git pull origin main
             docker compose down
             docker compose up -d --build
