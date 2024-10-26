@@ -1,10 +1,11 @@
-version: '3'
 services:
   springboot-app:
     build: .
     ports:
-      - "8329:8080"  # Aquí el puerto 8101 lo cambiarán los alumnos por su puerto asignado
+      - "8329:8080"  # Aquí el puerto 8329 lo cambias por tu puerto asignado
     volumes:
       - ./logs:/app/logs
     environment:
       - SPRING_PROFILES_ACTIVE=prod
+
+
