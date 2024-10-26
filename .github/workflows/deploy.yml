@@ -3,7 +3,7 @@ name: Despliegue en Invernalia
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
@@ -22,9 +22,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 7122
-          script: |
-            cd [DIRECTORIO DE TU APP]
-            cd [TU APP]
+          script: 
+            cd DIS_EjemploRestService
             git pull origin main
             docker compose down
             docker compose up -d --build
