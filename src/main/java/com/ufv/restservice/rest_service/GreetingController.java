@@ -27,7 +27,7 @@ public class GreetingController {
     @GetMapping("/users")
     public ArrayList<User> users(){
         JsonReader reader = new JsonReader();
-        ArrayList<User> userList = reader.readJsonFile("./src/main/resources/users.json");
+        ArrayList<User> userList = reader.readJsonFile();
         return userList;
     }
 
